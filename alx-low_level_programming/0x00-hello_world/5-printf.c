@@ -1,4 +1,4 @@
-#inlclude <stdio.h>
+#include <stdio.h>
 
 /**
  * main - Write a C program that prints exactly with proper grammar,
