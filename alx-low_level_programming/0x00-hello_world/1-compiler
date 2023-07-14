@@ -1,0 +1,21 @@
+#!/bin/bash
+gcc -c $CFILE -o ${CFILE%.c}.o
+
+# Script Explanation
+: << 'COMMENT'
+Sure, the command `gcc -c $CFILE -o ${CFILE%.c}.o` is used to compile a C source file and create an object file. The `-c` option tells the GCC compiler to only compile the source file and not to link it. The `-o` option specifies the output file name.
+
+The `$CFILE` environment variable is a placeholder for the name of the C source file to compile. The `${CFILE%.c}.o` part of the command is used to generate the output file name. The `%` character is a special character that is used to extract the basename of the C source file. The `.o` extension is used to identify object files.
+
+For example, if the `CFILE` environment variable is set to the value `main.c`, then the `gcc -c $CFILE -o ${CFILE%.c}.o` command will compile the C source file `main.c` and create an object file named `main.o`.
+
+Here is a breakdown of the command:
+
+* `gcc` : The GCC compiler
+* `-c` : Compile only
+* `$CFILE` : The C source file to compile
+* `-o` : The output file name
+* `${CFILE%.c}.o` : The output file name, generated from the basename of the C source file and the `.o` extension
+
+I hope this explanation is helpful. Let me know if you have any other questions.
+COMMENT
