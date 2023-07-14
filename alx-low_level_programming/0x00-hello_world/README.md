@@ -2,6 +2,18 @@
 
 This repository contains solutions for various tasks related to low-level programming in the C language. Each task focuses on different aspects of C programming and helps to build a strong foundation in this language.
 
+| Data Type        | Size      | Range                                        |
+|------------------|-----------|----------------------------------------------|
+| char             | 1 byte    | -128 to 127                                  |
+| unsigned char    | 1 byte    | 0 to 255                                     |
+| short            | 2 bytes   | -32,768 to 32,767                            |
+| unsigned short   | 2 bytes   | 0 to 65,535                                  |
+| int              | 4 bytes   | -2,147,483,648 to 2,147,483,647              |
+| unsigned int     | 4 bytes   | 0 to 4,294,967,295                           |
+| long             | 8 bytes   | -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 |
+| unsigned long    | 8 bytes   | 0 to 18,446,744,073,709,551,615               |
+
+Please note that the ranges provided above are typical ranges for the given data types. The actual ranges may vary depending on the specific implementation and system architecture.
 ## Betty linter
 
 To run the Betty linter, use the following command: `betty <filename>`
