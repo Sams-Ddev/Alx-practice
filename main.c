@@ -9,7 +9,7 @@
 int main(void)
 {
 	char *c = "Hello! World";
-	char *str = "Hi Zerd"
+	char *str = "Hi Zerd";
 
 	while (*c)
 	{
@@ -17,7 +17,7 @@ int main(void)
 		c++;
 	}
 
-	_printstring(*str);
+	_printstring(str);
 
 	return (0);
 }
