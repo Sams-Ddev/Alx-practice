@@ -2,10 +2,26 @@
 
 int _printf(const char *format, ...)
 {
-	var_list args;
+	va_list args;
 	int count = 0;
 
-	var_start(args, format);
+	va_start(args, format);
 
-	while
+	while (*format != '\0')
+	{
+		if (*format == '%')
+		{
+			format++;
+
+			switch (*format)
+			{
+				case 'c':
+				count += _putchar(va_arg(args, int));
+				break;
+
+				case 's':
+				count += _printstring(va_arg(args, char *))
+			}
+		}
+	}
 }
