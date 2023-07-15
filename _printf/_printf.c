@@ -20,8 +20,28 @@ int _printf(const char *format, ...)
 				break;
 
 				case 's':
-				count += _printstring(va_arg(args, char *))
+				count += _printstring(va_arg(args, char *));
+				break;
+
+				case '%':
+					count += _putchar('%');
+				break;
+
+				default:
+				{
+					count += _putchar('%');
+					count += _putchar(*format);
+					break;
+				}
 			}
 		}
+		else
+		{
+			count += _putchar(*format);
+		}
+		format++;
+		va_end(args);
 	}
 }
+
+
