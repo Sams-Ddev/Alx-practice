@@ -9,11 +9,15 @@
 int main(void)
 {
 	char *c = "Hello! World";
+	char *str = "Hi Zerd"
 
 	while (*c)
 	{
 		_putchar(*c);
 		c++;
 	}
-	return (0)
+
+	_printstring(*str);
+
+	return (0);
 }
