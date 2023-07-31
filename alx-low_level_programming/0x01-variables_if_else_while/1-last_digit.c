@@ -13,18 +13,20 @@
 /* betty style doc for function main goes there */
 int main(void)
 {
-	int n;
+	int n;	/* Randomly generated number*/
+	int r;	/* The last digit of the n = random number*/
 
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
-	
-	int r = n % 10;
+
+
+	r = n % 10;
 
 	if (r > 5)
 		printf("Last digit of %d is %d and is greater than 5\n", n, r);
 	else if (r == 0)
 		printf("Last digit od %d is %d and is 0\n", n, r);
-	else (r < 6 && r != 0)
+	else if  (r < 6 && r != 0)
 		printf("The last digit of %d is %d and is less than 6 and not 0\n", n, r);
 
 	return (0);
