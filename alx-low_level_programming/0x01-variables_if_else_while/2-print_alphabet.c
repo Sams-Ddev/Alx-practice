@@ -9,4 +9,17 @@
  * You can only use putchar twice in your code
  */
 
+int main()
+{
+	char c;
 
+
+	c = 'a';
+	while (c <= 'z')
+	{
+		putchar(c);
+		putchar('\n');
+		c++;
+	}
+	return (0);
+}
