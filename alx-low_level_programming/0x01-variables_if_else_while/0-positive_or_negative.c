@@ -22,9 +22,9 @@ int main(void)
 
 	/* your code goes there */
 	if (n < 0)
-		printf("The number %d is negative", n);
+		printf("The number %d is negative\n", n);
 	else
-		printf("The number %d is a positve", n);
+		printf("The number %d is a positve\n", n);
 
 	return (0);
 }
