@@ -28,9 +28,9 @@ int main(void)
 		printf("Last digit od %d is %d and is 0\n", n, r);
 	else if  (r < 6 && r != 0)
 		printf("The last digit of %d is %d and is less than 6 and not 0\n", n, r);
-	else if (r < 0)
+	if (r < 0)
 	{
-		r = -r
+		r = -r;
 		printf("The remainder %d is a negative", r);
 	}
 	return (0);
