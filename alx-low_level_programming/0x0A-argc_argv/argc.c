@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
  * The program demonstates the use of argc and arrgv[]
@@ -9,6 +10,6 @@
 
 int main(int argc, char *argv[])
 {
-	print("The value of argc/t= %d", argc);
-	return EXIT_SUCCESS
+	printf("The value of argc/t= %d", argc);
+	return EXIT_SUCCESS;
 }
