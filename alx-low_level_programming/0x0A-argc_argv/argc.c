@@ -2,8 +2,10 @@
 #include <stdlib.h>
 
 /**
- * The program demonstates the use of argc and arrgv[]
+ * main - demonstates the use of argc and arrgv[]
  * and prints out the values each is holding
+ * argc: argument count.
+ * argv[]: pointer to the array of strings
  *
  * Return - EXIT_SUCCESS on completion
  */
@@ -20,5 +22,5 @@ int main(int argc, char *argv[])
 		printf("The argv[%d] = %s\n", i, argv[i]);
 	}
 
-	return EXIT_SUCCESS;
+	return (EXIT_SUCCESS);
 }
