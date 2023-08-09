@@ -10,6 +10,15 @@
 
 int main(int argc, char *argv[])
 {
-	printf("The value of argc/t= %d", argc);
+	printf("The value of argc =\t %d\n", argc);
+
+	/* Displaying what is inside of argv */
+	int i;
+
+	for (i = 0; i < argc; i++)
+	{
+		printf("The argv[%d] = %s\n", i, argv[i]);
+	}
+
 	return EXIT_SUCCESS;
 }
