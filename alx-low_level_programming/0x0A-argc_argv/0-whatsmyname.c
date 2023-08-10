@@ -1,4 +1,4 @@
-#include <unistd.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 /**
@@ -8,10 +8,11 @@
  *
  * Return: EXIT_SUCCESS
 */
+int _putchar(char c);
 
-int main(int argc, char *argv[])
+int main(int argc __attribute__((unused)), const char *argv[])
 {
-	_putchar('%d', argc);
+	printf("%s\n", argv[0]);
 
 	return (EXIT_SUCCESS);
 }
