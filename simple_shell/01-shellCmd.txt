@@ -1,3 +1,0 @@
-COMMENTS >: To print commands on the terminal use the following commands.
-
-1. printf'Today is %0.3f\n' $(date + %s) | echo
