@@ -85,6 +85,18 @@ The shell supports the following built-in commands:
 - `setenv VARIABLE VALUE`: Set a new environment variable.
 - `unsetenv VARIABLE`: Remove an environment variable.
 
+##How to add Author file
+Bash script for generating the list of authors in git repo
+
+```bash
+#!/bin/sh
+
+git shortlog -se \
+  | perl -spe 's/^\s+\d+\s+//' \
+  | sed -e '/^CommitSyncScript.*$/d' \
+  > AUTHORS
+```
+
 ## Project Status
 
 The project is in progress and will be completed by the specified deadline. We aim to meet all the learning objectives and provide a functional and efficient shell implementation.
