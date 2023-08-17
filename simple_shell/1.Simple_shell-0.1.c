@@ -5,6 +5,12 @@
 #include <sys/wait.h>
 
 #define BUFFSIZE 1024
+/**
+ * main - start of simple shell program
+ * a UNIX command line interpreter.
+ *
+ * Return: always 0 on success.
+ */
 
 int main(void)
 {
@@ -24,10 +30,9 @@ int main(void)
 	{
 		printf("#cisfun$ ");
 		chars_read = getline(&cmd, &buffsize, stdin);
-
 		if (chars_read == -1)
 		{
-			/* checks if the end of file (EOF) has been reached. */
+			/* checks if the end of file (EOF)*/
 			if (feof(stdin))
 			{
 				printf("\n");
@@ -40,7 +45,7 @@ int main(void)
 				exit(1);
 			}
 		}
-		
+
 		/* Remove the newline character from the command */
 		if (cmd[chars_read - 1] == '\n')
 			cmd[chars_read - 1] = '\0';
@@ -52,15 +57,13 @@ int main(void)
 			perror("fork failed");
 			exit(1);
 		}
-
 		/* On sucess child process runs */
 		else if (child_pid == 0)
 		{
-			execve(cmd,(char *const []){cmd, NULL}, NULL);
+			execve(cmd, (char *const []){cmd, NULL}, NULL);
 			perror("execve");
 			exit(1);
 		}
-
 		/* else switch to parent process */
 		else
 		{

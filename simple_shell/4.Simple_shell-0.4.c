@@ -20,7 +20,7 @@ int main(void)
 
     while (1)
     {
-        printf("$ ");
+        printf(":) ");
         characters_read = getline(&command, &bufsize, stdin);
 
         if (characters_read == -1)
@@ -44,17 +44,6 @@ int main(void)
         {
             free(command);
             exit(EXIT_SUCCESS);
-        }
-        // Handle the built-in env command
-        else if (strcmp(command, "env") == 0)
-        {
-            char **env = environ;
-            while (*env != NULL)
-            {
-                printf("%s\n", *env);
-                env++;
-            }
-            continue;
         }
 
         char *full_path = get_path(command);
