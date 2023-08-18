@@ -1,10 +1,44 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/wait.h>
+#include "shell.h"
+/**
+ * opt_char_read - runs set checks if end of file
+ * is not reached.
+ *
+ * Return: 1 on success
+ */
 
-#define BUFFSIZE 1024
+int opt_chars_read(void)
+{
+	char *cmd;
+
+	/* checks if the end of file (EOF)*/
+	if (feof(stdin))
+	{
+		printf("\n");
+		free(cmd);
+		exit(1);
+	}
+	else
+	{
+		perror("getline");
+		exit(1);
+	}
+}
+
+/**
+ * elseif_op - calls on execve with cmd
+ *
+ * Return: 1 on success.
+ */
+
+int elseif_op(void)
+{
+	char *cmd;
+
+	execve(cmd, (char *const []){cmd, NULL}, NULL);
+	perror("execve");
+	exit(1);
+}
+
 /**
  * main - start of simple shell program
  * a UNIX command line interpreter.
@@ -31,20 +65,7 @@ int main(void)
 		printf("#cisfun$ ");
 		chars_read = getline(&cmd, &buffsize, stdin);
 		if (chars_read == -1)
-		{
-			/* checks if the end of file (EOF)*/
-			if (feof(stdin))
-			{
-				printf("\n");
-				free(cmd);
-				exit(1);
-			}
-			else
-			{
-				perror("getline");
-				exit(1);
-			}
-		}
+			opt_chars_read();
 
 		/* Remove the newline character from the command */
 		if (cmd[chars_read - 1] == '\n')
@@ -64,6 +85,7 @@ int main(void)
 			perror("execve");
 			exit(1);
 		}
+
 		/* else switch to parent process */
 		else
 		{
@@ -75,4 +97,3 @@ int main(void)
 	free(cmd);
 	return (EXIT_SUCCESS);
 }
-
