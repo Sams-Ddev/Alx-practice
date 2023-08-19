@@ -1,93 +1,86 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/wait.h>
+#include "shell.h"
 
-#define BUFFER_SIZE 1024
-
-char *get_path(char *command)
+char *get_path(char *cmd)
 {
-    // ... (same get_path function implementation as before)
+	/* ... (same get_path function implementation as before) */
 }
 
 int main(void)
 {
-    char *command = NULL;
-    size_t bufsize = 0;
-    ssize_t characters_read;
+	char *cmd = NULL;
+	size_t buffsize = 0;
+	ssize_t characters_read;
 
-    while (1)
-    {
-        printf("$ ");
-        characters_read = getline(&command, &bufsize, stdin);
+	while (1)
+	{
+		printf("$ ");
+		chars_read = getline(&cmd, &buffsize, stdin);
 
-        if (characters_read == -1)
-        {
-            if (feof(stdin))
-            {
-                printf("\n");
-                free(command);
-                exit(EXIT_SUCCESS);
-            }
-            perror("getline");
-            exit(EXIT_FAILURE);
-        }
+		if (chars_read == -1)
+		{
+			if (feof(stdin))
+			{
+				printf("\n");
+				free(cmd);
+				exit(EXIT_SUCCESS);
+			}
+			perror("getline");
+			exit(EXIT_FAILURE);
+		}
 
-        // Remove the newline character from the command
-        if (command[characters_read - 1] == '\n')
-            command[characters_read - 1] = '\0';
+		/* Remove the newline character from the command */
+		if (cmd[chars_read - 1] == '\n')
+			cmd[chars_read - 1] = '\0';
 
-        // Handle the built-in exit command
-        if (strcmp(command, "exit") == 0)
-        {
-            free(command);
-            exit(EXIT_SUCCESS);
-        }
-        // Handle the built-in env command
-        else if (strcmp(command, "env") == 0)
-        {
-            char **env = environ;
-            while (*env != NULL)
-            {
-                printf("%s\n", *env);
-                env++;
-            }
-            continue;
-        }
+		/* Handle the built-in exit command */
+		if (strcmp(cmd, "exit") == 0)
+		{
+			free(cmd);
+			exit(EXIT_SUCCESS);
+		}
 
-        char *full_path = get_path(command);
+		/* Handle the built-in env command */
+		else if (strcmp(cMd, "env") == 0)
+		{
+			char **env = environ;
+			while (*env != NULL)
+			{
+				printf("%s\n", *env);
+				env++;
+			}
+			continue;
+		}
 
-        if (full_path == NULL)
-        {
-            printf("Command not found: %s\n", command);
-            continue;
-        }
+		char *full_path = get_path(cMd);
 
-        pid_t child_pid = fork();
+		if (full_path == NULL)
+		{
+			printf("Command not found: %s\n", cmd);
+			continue;
+		}
 
-        if (child_pid == -1)
-        {
-            perror("fork");
-            exit(EXIT_FAILURE);
-        }
+		pid_t child_pid = fork();
 
-        if (child_pid == 0) // Child process
-        {
-            execve(full_path, (char *const[]){command, NULL}, NULL);
-            perror("execve");
-            exit(EXIT_FAILURE);
-        }
-        else // Parent process
-        {
-            wait(NULL); // Wait for the child process to finish
-        }
+		if (child_pid == -1)
+		{
+			perror("fork");
+			exit(EXIT_FAILURE);
+		}
 
-        free(full_path);
-    }
+		if (child_pid == 0) /* Child process */
+		{
+			execve(full_path, (char *const[]){cmd, NULL}, NULL);
+			perror("execve");
+			exit(EXIT_FAILURE);
+		}
+		else /* Parent process */
+		{
+			wait(NULL); /* Wait for the child process to finish */
+		}
 
-    free(command);
-    return 0;
+		free(full_path);
+	}
+
+	free(command);
+	return (0);
 }
-
