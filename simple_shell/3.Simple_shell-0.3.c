@@ -1,5 +1,10 @@
 #include "shell.h"
 
+/**
+ * get_path - function that handles env variable.
+ *
+ * Return: 0.
+ */
 
 char *get_path(char *cmd)
 {
@@ -30,23 +35,30 @@ char *get_path(char *cmd)
 	return (NULL);
 }
 
+
+/**
+ * main - start of the program
+ *
+ * Return: 0
+ */
+
 int main(void)
 {
 	char *cmd = NULL;
-	size_t bufsize = 0;
-	ssize_t characters_read;
+	size_t buffsize = 0;
+	ssize_t chars_read;
 
 	while (1)
 	{
 		printf(":) ");
-		characters_read = getline(&command, &bufsize, stdin);
+		chars_read = getline(&cmd, &buffsize, stdin);
 
-		if (characters_read == -1)
+		if (chars_read == -1)
 		{
 			if (feof(stdin))
 			{
 				printf("\n");
-				free(command);
+				free(cmd);
 				exit(EXIT_SUCCESS);
 			}
 			perror("getline");
@@ -54,14 +66,14 @@ int main(void)
 		}
 
 		/* Remove the newline character from the command */
-		if (command[characters_read - 1] == '\n')
-			command[characters_read - 1] = '\0';
+		if (cmd[chars_read - 1] == '\n')
+			cmd[chars_read - 1] = '\0';
 
-		char *full_path = get_path(command);
+		char *full_path = get_path(cmd);
 
 		if (full_path == NULL)
 		{
-			printf("Command not found: %s\n", command);
+			printf("Command not found: %s\n", cmd);
 			continue;
 		}
 
@@ -75,7 +87,7 @@ int main(void)
 
 		if (child_pid == 0) /* Child process */
 		{
-			execve(full_path, (char *const[]){command, NULL}, NULL);
+			execve(full_path, (char *const[]){cmd, NULL}, NULL);
 			perror("execve");
 			exit(EXIT_FAILURE);
 		}
@@ -87,6 +99,6 @@ int main(void)
 		free(full_path);
 	}
 
-	free(command);
+	free(cmd);
 	return (0);
 }

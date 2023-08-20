@@ -10,55 +10,55 @@
 
 typedef struct Alias
 {
-    char *name;
-    char *value;
-    struct Alias *next;
+	char *name;
+	char *value;
+	struct Alias *next;
 } Alias;
 
 Alias *alias_list = NULL;
 
 char *get_input(void)
 {
-    // ... (same get_input function implementation as before)
+	/* ... (same get_input function implementation as before)*/
 }
 
 Alias *find_alias(char *name)
 {
-    Alias *current = alias_list;
-    while (current != NULL)
-    {
-        if (strcmp(current->name, name) == 0)
-            return current;
-        current = current->next;
-    }
-    return NULL;
+	Alias *current = alias_list;
+	while (current != NULL)
+	{
+		if (strcmp(current->name, name) == 0)
+			return (current);
+		current = current->next;
+	}
+	return (NULL);
 }
 
 void print_aliases(void)
 {
-    Alias *current = alias_list;
-    while (current != NULL)
-    {
-        printf("%s='%s'\n", current->name, current->value);
-        current = current->next;
-    }
+	Alias *current = alias_list;
+	while (current != NULL)
+	{
+		printf("%s='%s'\n", current->name, current->value);
+		current = current->next;
+	}
 }
 
 void add_alias(char *name, char *value)
 {
-    Alias *alias = find_alias(name);
-    if (alias != NULL)
-    {
-        free(alias->value);
-        alias->value = strdup(value);
-    }
-    else
-    {
-        Alias *new_alias = (Alias *)malloc(sizeof(Alias));
-        new_alias->name = strdup(name);
-        new_alias->value = strdup(value);
-        new_alias->next = alias_list;
-        alias_list = new_alias;
+	Alias *alias = find_alias(name);
+	if (alias != NULL)
+	{
+		free(alias->value);
+		alias->value = strdup(value);
+	}
+	else
+	{
+		Alias *new_alias = (Alias *)malloc(sizeof(Alias));
+			new_alias->name = strdup(name);
+			new_alias->value = strdup(value);
+	    `new_alias->next = alias_list;
+	    alias_list = new_alias;
     }
 }
 

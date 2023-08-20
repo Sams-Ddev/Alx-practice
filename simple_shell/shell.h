@@ -11,5 +11,9 @@
 
 /* buffers read/write */
 #define BUFFER_SIZE 1024
+int opt_chars_read(void);
+int elseif_op(void);
+int elseif_op(void);
+
 
 #endif	/* shell.h */
