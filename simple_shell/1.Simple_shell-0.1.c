@@ -1,6 +1,7 @@
 #include "shell.h"
+
 /**
- * opt_char_read - runs set checks if end of file
+ * opt_chars_read - runs set checks if end of file
  * is not reached.
  *
  * Return: 1 on success
@@ -82,28 +83,22 @@ int main(void)
 		if (chars_read == -1)
 			opt_chars_read();
 
-		/* Remove the newline character from the command */
 		remove_newline();
 
-		/* If child process fails*/
-		if (child_pid == -1)
+		if (child_pid == -1)	 /* If child process fails*/
 		{
 			perror("fork failed");
 			exit(1);
 		}
-		/* On sucess child process runs */
-		else if (child_pid == 0)
+		else if (child_pid == 0)	 /* On sucess child process runs */
 		{
 			execve(cmd, (char *const []){cmd, NULL}, NULL);
 			perror("execve");
 			exit(1);
 		}
-
-		/* else switch to parent process */
 		else
 		{
-			/* Wait() waits till the process finish */
-			wait(NULL);
+			wait(NULL);	/* Wait() waits till the process finish */
 		}
 	}
 
