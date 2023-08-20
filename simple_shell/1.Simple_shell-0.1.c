@@ -24,6 +24,21 @@ int opt_chars_read(void)
 	}
 }
 
+
+/**
+ * remove_newline - Remove the newline character
+ * from the command
+ *
+ * Return: 0
+ */
+void remove_newline(void)
+{
+	/* Remove the newline character from the command */
+	if (cmd[chars_read - 1] == '\n')
+		cmd[chars_read - 1] = '\0';
+	pid_t child_pid = fork();
+}
+
 /**
  * elseif_op - calls on execve with cmd
  *
