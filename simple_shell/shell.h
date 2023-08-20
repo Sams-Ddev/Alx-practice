@@ -15,5 +15,6 @@ int opt_chars_read(void);
 int elseif_op(void);
 int elseif_op(void);
 void forkChild(void);
+void remove_newline(void);
 
 #endif	/* shell.h */

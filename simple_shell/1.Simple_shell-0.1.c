@@ -83,9 +83,7 @@ int main(void)
 			opt_chars_read();
 
 		/* Remove the newline character from the command */
-		if (cmd[chars_read - 1] == '\n')
-			cmd[chars_read - 1] = '\0';
-		pid_t child_pid = fork();
+		remove_newline();
 
 		/* If child process fails*/
 		if (child_pid == -1)
