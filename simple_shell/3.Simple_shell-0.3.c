@@ -54,16 +54,7 @@ int main(void)
 		chars_read = getline(&cmd, &buffsize, stdin);
 
 		if (chars_read == -1)
-		{
-			if (feof(stdin))
-			{
-				printf("\n");
-				free(cmd);
-				exit(EXIT_SUCCESS);
-			}
-			perror("getline");
-			exit(EXIT_FAILURE);
-		}
+			opt_chars_read();
 
 		/* Remove the newline character from the command */
 		if (cmd[chars_read - 1] == '\n')
