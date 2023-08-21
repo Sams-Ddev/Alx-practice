@@ -34,6 +34,9 @@ int opt_chars_read(void)
  */
 void remove_newline(void)
 {
+	char *cmd;
+	ssize_t chars_read;
+
 	/* Remove the newline character from the command */
 	if (cmd[chars_read - 1] == '\n')
 		cmd[chars_read - 1] = '\0';
