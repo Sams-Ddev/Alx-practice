@@ -25,37 +25,27 @@ int opt_chars_read(void)
 	}
 }
 
+void handle_error(char *error_message)
+{
+	perror(error_message);
+	free(cmd);
+	exit(EXIT_FAILURE);
+}
 
 /**
  * remove_newline - Remove the newline character
  * from the command
+ * @cmd: user commands in terminal
+ * @chars_read: reads charaters elements bu user.
  *
  * Return: 0
  */
-void remove_newline(void)
+void remove_newline(char *cmd, ssize_t chars_read)
 {
-	char *cmd;
-	ssize_t chars_read;
 
 	/* Remove the newline character from the command */
 	if (cmd[chars_read - 1] == '\n')
 		cmd[chars_read - 1] = '\0';
-	pid_t child_pid = fork();
-}
-
-/**
- * elseif_op - calls on execve with cmd
- *
- * Return: 1 on success.
- */
-
-int elseif_op(void)
-{
-	char *cmd;
-
-	execve(cmd, (char *const []){cmd, NULL}, NULL);
-	perror("execve");
-	exit(1);
 }
 
 /**
@@ -68,15 +58,15 @@ int elseif_op(void)
 int main(void)
 {
 	char *cmd;
-	size_t buffsize;
+	size_t buffsize = 0;
 	ssize_t chars_read;
+	pid_t child_pid;
 
 	cmd = (char *)malloc(buffsize * sizeof(char));
 	if (cmd == NULL)
 	{
-		/* testing for NULL status*/
-		perror("Unable to allocate command buffer");
-		exit(1);
+		perror("Unable to allocate command buffer");/* testing for NULL status*/
+		exit(EXIT_FAILURE);
 	}
 
 	while (1)
@@ -84,27 +74,26 @@ int main(void)
 		printf("#cisfun$ ");
 		chars_read = getline(&cmd, &buffsize, stdin);
 		if (chars_read == -1)
-			opt_chars_read();
-
-		remove_newline();
-
-		if (child_pid == -1)	 /* If child process fails*/
 		{
-			perror("fork failed");
-			exit(1);
+			handle_error("getline");
+		}
+		remove_newline(cmd, chars_read);
+		child_pid = fork();
+		if (child_pid == -1)	 /* OpenAI's idealogy*/
+		{
+			handle_error("fork failed");
 		}
 		else if (child_pid == 0)	 /* On sucess child process runs */
 		{
 			execve(cmd, (char *const []){cmd, NULL}, NULL);
-			perror("execve");
-			exit(1);
+			handle_error("execve");
 		}
 		else
-		{
 			wait(NULL);	/* Wait() waits till the process finish */
-		}
 	}
 
 	free(cmd);
-	return (EXIT_SUCCESS);
+	return (0);
 }
+
+
