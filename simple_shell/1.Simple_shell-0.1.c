@@ -24,9 +24,13 @@ int opt_chars_read(void)
 		exit(1);
 	}
 }
-
+/**
+ * handle - a function that handle NULL errors
+ */
 void handle_error(char *error_message)
 {
+	char *cmd;
+
 	perror(error_message);
 	free(cmd);
 	exit(EXIT_FAILURE);
@@ -40,6 +44,7 @@ void handle_error(char *error_message)
  *
  * Return: 0
  */
+
 void remove_newline(char *cmd, ssize_t chars_read)
 {
 
