@@ -1,16 +1,31 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/wait.h>
+#include "shell.h"
 
-#define BUFFSIZE 1024
-
+/**
+ * handle_error - handles error messagess
+ *
+ * Return: -1
+ */
 void handle_error(char *error_message)
 {
         printf("error_message");
         return (-1);
 }
+
+void handle_eof_or_error(void)
+{
+	if (feof(stdin))
+	{
+		printf("\n");   /* checks if the end of file (EOF)*/
+		free(cmd);
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
+		perror("getline");
+		exit(1);
+	}
+}
+
 /**
  * main - start of simple shell program
  * a UNIX command line interpreter.
@@ -37,19 +52,7 @@ int main(void)
 		printf("#cisfun$ ");
 		chars_read = getline(&cmd, &buffsize, stdin);
 		if (chars_read == -1)
-		{
-			if (feof(stdin))
-			{
-				printf("\n");	/* checks if the end of file (EOF)*/
-				free(cmd);
-				exit(EXIT_FAILURE);
-			}
-			else
-			{
-				perror("getline");
-				exit(1);
-			}
-		}
+			handle_eof_or_error();
 
 		/* Remove the newline character from the command */
 		if (cmd[chars_read - 1] == '\n')
