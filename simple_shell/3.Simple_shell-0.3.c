@@ -2,6 +2,7 @@
 
 /**
  * get_path - function that handles env variable.
+ * @cmd: user entered commands
  *
  * Return: 0.
  */
@@ -55,9 +56,7 @@ int main(void)
 
 		if (chars_read == -1)
 			opt_chars_read();
-
-		/* Remove the newline character from the command */
-		if (cmd[chars_read - 1] == '\n')
+		if (cmd[chars_read - 1] == '\n')	/* Removes newline char from the command */
 			cmd[chars_read - 1] = '\0';
 
 		char *full_path = get_path(cmd);
@@ -67,7 +66,6 @@ int main(void)
 			printf("Command not found: %s\n", cmd);
 			continue;
 		}
-
 		pid_t child_pid = fork();
 
 		if (child_pid == -1)
@@ -75,7 +73,6 @@ int main(void)
 			perror("fork");
 			exit(EXIT_FAILURE);
 		}
-
 		if (child_pid == 0) /* Child process */
 		{
 			execve(full_path, (char *const[]){cmd, NULL}, NULL);
@@ -83,10 +80,7 @@ int main(void)
 			exit(EXIT_FAILURE);
 		}
 		else /* Parent process */
-		{
 			wait(NULL); /* Wait for the child process to finish */
-		}
-
 		free(full_path);
 	}
 
