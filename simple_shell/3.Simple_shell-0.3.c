@@ -13,7 +13,6 @@ char *get_path(char *cmd)
 
 	if (path_env == NULL)
 		return (NULL);
-
 	char *path = strtok(path_env, ":");
 
 	while (path != NULL)
@@ -36,6 +35,29 @@ char *get_path(char *cmd)
 	return (NULL);
 }
 
+/**
+ * opt_chars_read - runs set checks if end of file
+ * is not reached.
+ *
+ * Return: 1 on success
+ */
+int opt_chars_read(void)
+{
+	char *cmd;
+
+	/* checks if the end of file (EOF)*/
+	if (feof(stdin))
+	{
+		printf("\n");
+		free(cmd);
+		exit(1);
+	}
+	else
+	{
+		perror("getline");
+		exit(1);
+	}
+}
 
 /**
  * main - start of the program
@@ -83,7 +105,6 @@ int main(void)
 			wait(NULL); /* Wait for the child process to finish */
 		free(full_path);
 	}
-
 	free(cmd);
 	return (0);
 }

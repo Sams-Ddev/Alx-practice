@@ -19,4 +19,4 @@ void remove_newline(char *, ssize_t);
 void handle_error(char *error_message);
 void handle_eof_or_error(void);
 
-#endif	/* shell.h */
+#endif	/* SHELL_H */
