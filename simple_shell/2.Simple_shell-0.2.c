@@ -82,7 +82,6 @@ int main(void)
 			perror("fork");
 			exit(EXIT_FAILURE);
 		}
-
 		if (child_pid == 0)
 			forkChild();
 
