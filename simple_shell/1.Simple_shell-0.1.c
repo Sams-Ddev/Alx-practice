@@ -1,58 +1,16 @@
-#include "shell.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
 
-/**
- * opt_chars_read - runs set checks if end of file
- * is not reached.
- *
- * Return: 1 on success
- */
+#define BUFFSIZE 1024
 
-int opt_chars_read(void)
-{
-	char *cmd;
-
-	/* checks if the end of file (EOF)*/
-	if (feof(stdin))
-	{
-		printf("\n");
-		free(cmd);
-		exit(1);
-	}
-	else
-	{
-		perror("getline");
-		exit(1);
-	}
-}
-/**
- * handle - a function that handle NULL errors
- */
 void handle_error(char *error_message)
 {
-	char *cmd;
-
-	perror(error_message);
-	free(cmd);
-	exit(EXIT_FAILURE);
+        printf("error_message");
+        return (-1);
 }
-
-/**
- * remove_newline - Remove the newline character
- * from the command
- * @cmd: user commands in terminal
- * @chars_read: reads charaters elements bu user.
- *
- * Return: 0
- */
-
-void remove_newline(char *cmd, ssize_t chars_read)
-{
-
-	/* Remove the newline character from the command */
-	if (cmd[chars_read - 1] == '\n')
-		cmd[chars_read - 1] = '\0';
-}
-
 /**
  * main - start of simple shell program
  * a UNIX command line interpreter.
@@ -65,13 +23,13 @@ int main(void)
 	char *cmd;
 	size_t buffsize = 0;
 	ssize_t chars_read;
-	pid_t child_pid;
 
 	cmd = (char *)malloc(buffsize * sizeof(char));
 	if (cmd == NULL)
 	{
-		perror("Unable to allocate command buffer");/* testing for NULL status*/
-		exit(EXIT_FAILURE);
+		/* testing for NULL status*/
+		perror("Unable to allocate command buffer");
+		exit(1);
 	}
 
 	while (1)
@@ -80,25 +38,39 @@ int main(void)
 		chars_read = getline(&cmd, &buffsize, stdin);
 		if (chars_read == -1)
 		{
-			handle_error("getline");
+			if (feof(stdin))
+			{
+				printf("\n");	/* checks if the end of file (EOF)*/
+				free(cmd);
+				exit(EXIT_FAILURE);
+			}
+			else
+			{
+				perror("getline");
+				exit(1);
+			}
 		}
-		remove_newline(cmd, chars_read);
-		child_pid = fork();
-		if (child_pid == -1)	 /* OpenAI's idealogy*/
+
+		/* Remove the newline character from the command */
+		if (cmd[chars_read - 1] == '\n')
+			cmd[chars_read - 1] = '\0';
+		pid_t child_pid = fork();
+		if (child_pid == -1)
 		{
-			handle_error("fork failed");
+			perror("fork failed");	/* If child process fails*/
+			exit(1);
 		}
-		else if (child_pid == 0)	 /* On sucess child process runs */
+		else if (child_pid == 0)
 		{
 			execve(cmd, (char *const []){cmd, NULL}, NULL);
-			handle_error("execve");
+			perror("execve");
+			exit(EXIT_FAILURE);
 		}
 		else
 			wait(NULL);	/* Wait() waits till the process finish */
 	}
 
 	free(cmd);
-	return (0);
+	return (EXIT_SUCCESS);
 }
-
 

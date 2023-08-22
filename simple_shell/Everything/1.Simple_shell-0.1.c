@@ -15,7 +15,7 @@
 int main(void)
 {
 	char *cmd;
-	size_t buffsize;
+	size_t buffsize = 0;
 	ssize_t chars_read;
 
 	cmd = (char *)malloc(buffsize * sizeof(char));
@@ -32,12 +32,11 @@ int main(void)
 		chars_read = getline(&cmd, &buffsize, stdin);
 		if (chars_read == -1)
 		{
-			/* checks if the end of file (EOF)*/
 			if (feof(stdin))
 			{
-				printf("\n");
+				printf("\n");	/* checks if the end of file (EOF)*/
 				free(cmd);
-				exit(1);
+				exit(EXIT_FAILURE);
 			}
 			else
 			{
@@ -62,14 +61,10 @@ int main(void)
 		{
 			execve(cmd, (char *const []){cmd, NULL}, NULL);
 			perror("execve");
-			exit(1);
+			exit(EXIT_FAILURE);
 		}
-		/* else switch to parent process */
 		else
-		{
-			/* Wait() waits till the process finish */
-			wait(NULL);
-		}
+			wait(NULL);	/* Wait() waits till the process finish */
 	}
 
 	free(cmd);
