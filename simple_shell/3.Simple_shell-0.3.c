@@ -21,7 +21,7 @@ char *get_path(char *cmd)
 
 		if (full_path == NULL)
 		{
-			perror("malloc");
+			printf("malloc");
 			exit(EXIT_FAILURE);
 		}
 		sprintf(full_path, "%s/%s", path, cmd);

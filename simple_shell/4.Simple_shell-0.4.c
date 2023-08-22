@@ -9,7 +9,30 @@
 
 char *get_path(char *cmd)
 {
-	/* ... (same get_path function implementation as before) */
+	char *path_env = getenv("PATH");
+
+	if (path_env == NULL)
+		return (NULL);
+	char *path = strtok(path_env, ":");
+
+	while (path != NULL)
+	{
+		char *full_path = malloc(strlen(path) + strlen(cmd) + 2);
+
+		if (full_path == NULL)
+		{
+			printf("malloc");
+			exit(EXIT_FAILURE);
+		}
+		printf(full_path, "%s/%s", path, cmd);
+
+		if (access(full_path, X_OK) == 0)
+			return (full_path);
+
+		free(full_path);
+		path = strtok(NULL, ":");
+	}
+	return (NULL);
 }
 
 /**
@@ -66,12 +89,14 @@ int main(void)
 			exit(EXIT_SUCCESS);
 		}
 		char *full_path = get_path(cmd);
+
 		if (full_path == NULL)
 		{
 			printf("Command not found: %s\n", cmd);
 			continue;
 		}
 		pid_t child_pid = fork();
+
 		if (child_pid == -1)
 		{
 			perror("fork error");
