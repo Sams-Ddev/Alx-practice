@@ -17,5 +17,6 @@ int elseif_op(void);
 void forkChild(void);
 void remove_newline(char *, ssize_t);
 void handle_error(char *error_message);
+void handle_eof_or_error(void);
 
 #endif	/* shell.h */

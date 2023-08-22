@@ -3,18 +3,20 @@
 /**
  * handle_error - handles error messagess
  *
- * Return: -1
+ * Return: 1
  */
 void handle_error(char *error_message)
 {
         printf("error_message");
-        return (-1);
+        exit(1);
 }
 
 void handle_eof_or_error(void)
 {
 	if (feof(stdin))
 	{
+		char *cmd;
+
 		printf("\n");   /* checks if the end of file (EOF)*/
 		free(cmd);
 		exit(EXIT_FAILURE);
