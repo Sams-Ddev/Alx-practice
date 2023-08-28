@@ -160,6 +160,8 @@ Write a script that compiles a C file and creates an executable named `cisfun`.
 
 - The C file name will be saved in the variable `$CFILE`
 
+cohort 17
+
 Example usage:
 ```
 $ export CFILE=main.c
