@@ -6,6 +6,8 @@
  * Returns: 0
  */
 
+int OR(int, int);
+
 int main(void)
 {
 	int x, y, result;
@@ -17,6 +19,7 @@ int main(void)
 	scanf("%d", &y);
 
 	OR(x, y);
+	return (result);
 }
 
 /**
@@ -30,19 +33,14 @@ int main(void)
  * Return: result
  */
 
-int OR(int a, int b)
+int OR(int, int)
 {
 	int a, b, result;
 
-	a = 1;
-	b = 0;
-	if (a == 1)
-		result = 1;
-	else if (b == 1)
+	if (a == 1 && b == 1)
 		result = 1;
 	else
 		result = 0;
-		printf("The result is %d, result");
 
 	return (result);
 }
