@@ -9,6 +9,23 @@
 
 int main(void)
 {
-	
+	a = 1;
+	b = 0;
+
+	return (result);
+}
+
+int OR(int, int)
+{
+	int a, b, result;
+
+	a = 1;
+	b = 0;
+	if (a == 1)
+		result = 1;
+	else if (b == 1)
+		result = 1;
+	else 
+		printf("The result is %d, result");
 	return (result);
 }
