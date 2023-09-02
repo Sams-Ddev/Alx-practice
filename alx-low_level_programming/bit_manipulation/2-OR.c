@@ -1,21 +1,36 @@
 #include <stdio.h>
 
 /**
- * OR(|) - Its a bitwise operation, take two operands
- * and make a | operation.
- * The result is true(1) when any of the operands is 1,
- * otherwise zero.
+ * main - entry to program
+ *
+ * Returns: 0
  */
 
 int main(void)
 {
-	a = 1;
-	b = 0;
+	int x, y, result;
 
-	return (result);
+	printf("Enter the first bit[either 1/0]: ");
+	scanf("%d", &x);
+
+	printf("Enter another bit[either 1/0]: ");
+	scanf("%d", &y);
+
+	OR(x, y);
 }
 
-int OR(int, int)
+/**
+ * OR - Its a bitwise operation, take two operands
+ * and make a | operation.
+ * The result is true(1) when any of the operands is 1,
+ * otherwise zero.
+ * @a: first bit
+ * @b: second bit
+ *
+ * Return: result
+ */
+
+int OR(int a, int b)
 {
 	int a, b, result;
 
@@ -25,7 +40,9 @@ int OR(int, int)
 		result = 1;
 	else if (b == 1)
 		result = 1;
-	else 
+	else
+		result = 0;
 		printf("The result is %d, result");
+
 	return (result);
 }
