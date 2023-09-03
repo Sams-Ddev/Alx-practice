@@ -37,9 +37,10 @@ int OR(int, int)
 	int a, b, result;
 
 	if (a == b == 1)
+	{
 		result = 1;
+		printf("The OR(|) result is: %d\n", result);
+	}
 	else
-		result = 0;
-
-	return (result);
+		printf("The OR(|) result is: 0");
 }
