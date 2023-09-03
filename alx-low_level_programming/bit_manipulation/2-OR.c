@@ -25,8 +25,7 @@ int main(void)
 /**
  * OR - Its a bitwise operation, take two operands
  * and make a | operation.
- * The result is true(1) when any of the operands is 1,
- * otherwise zero.
+ * The result is true(1) when any of the operands is 1, otherwise zero.
  * @a: first bit
  * @b: second bit
  *
@@ -37,7 +36,7 @@ int OR(int, int)
 {
 	int a, b, result;
 
-	if (a == 1 && b == 1)
+	if (a == b == 1)
 		result = 1;
 	else
 		result = 0;
