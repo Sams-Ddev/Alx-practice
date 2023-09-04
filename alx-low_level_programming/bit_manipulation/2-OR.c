@@ -2,6 +2,7 @@
 
 /**
  * main - entry to program
+ * @int: return data type
  *
  * Returns: 0
  */
@@ -10,7 +11,7 @@ int OR(int, int);
 
 int main(void)
 {
-	int x, y, result;
+	int x, y;
 
 	printf("Enter the first bit[either 1/0]: ");
 	scanf("%d", &x);
@@ -18,8 +19,12 @@ int main(void)
 	printf("Enter another bit[either 1/0]: ");
 	scanf("%d", &y);
 
-	OR(x, y);
-	return (result);
+	int result = OR(x, y);
+
+	/* Display result */
+	printf("The result of bitwise OR: %d\n", result);
+
+	return (0);
 }
 
 /**
@@ -32,15 +37,9 @@ int main(void)
  * Return: result
  */
 
-int OR(int, int)
+int OR(int a, int b)
 {
-	int a, b, result;
+	int result = a | b;
 
-	if (a == b == 1)
-	{
-		result = 1;
-		printf("The OR(|) result is: %d\n", result);
-	}
-	else
-		printf("The OR(|) result is: 0");
+	return (result);
 }
