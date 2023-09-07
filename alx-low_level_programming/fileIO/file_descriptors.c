@@ -14,9 +14,9 @@ int main (int argc, char * argv[])
 	int ifd, ofd, pipefd[2];
 
 	printf("Process File Descritor Table \n");
-	printf("----------------------------------------------------------\n");
+	printf("-------------------------------------------------------------------\n");
 	printf("Descritor\t Pointer\t Description\n");
-	printf("----------------------------------------------------------\n");
+	printf("-------------------------------------------------------------------\n");
 	printf("%d\t\t %p -----> Terminal's Input Device\n", STDIN_FILENO, stdin);
 	printf("%d\t\t %p -----> Terminal's Output Device\n", STDOUT_FILENO, stdout);
 	printf("%d\t\t %p -----> Terminal's Error Device\n", STDERR_FILENO, stderr);
