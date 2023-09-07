@@ -17,7 +17,7 @@ int main()
 		return (1);
 	}
 
-	fprint(file, "Heloo, world!\n");
+	fprintf(file,"%s", "Heloo, world!\n");
 
 	fclose(file);
 	return (0);
