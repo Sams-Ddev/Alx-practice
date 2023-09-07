@@ -1,4 +1,7 @@
 #include <stdio.h>
+#include <unistd.h>
+#include <fcntl.h>
+
 /**
  * This simple program outlines the descriptors, pointers and
  * various description from the PCB during running of code
@@ -8,7 +11,7 @@
 
 int main (int argc, char * argv[])
 {
-	int ifd, ofd, pipedfd[2];
+	int ifd, ofd, pipefd[2];
 
 	printf("Process File Descritor Table \n");
 	printf("----------------------------------------------------------\n");
@@ -20,7 +23,7 @@ int main (int argc, char * argv[])
 
 	/* Create two files, one input and one output */
 	ifd = open("in.txt", O_RDONLY);
-	ofd = open("out.txt",O_WROONLY);
+	ofd = open("out.txt",O_WRONLY);
 	printf("%d\t\t %p -----> File in.txt\n", ifd, fdopen(ifd, "r"));
 	printf("%d\t\t %p -----> File out.txt\n", ofd, fdopen(ofd, "w"));
 
