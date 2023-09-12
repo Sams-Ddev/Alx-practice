@@ -7,13 +7,14 @@
  * Return: 0 on  success
  */
 
-int main()
+int main(void)
 {
 	/* Declaring variables */
 	char *line = NULL;	/*pointer to the wher buffer text is stored*/
-	size_t len = 0;
-	ssize_t read;
+	size_t len = 0;	/*pointer to size of buffer always intiate to 0*/
+	ssize_t read;	/*a variable to hold the result for getline()*/
 
+	/*uses fopen() stdio func to opena file called "example.txt" in  read mode*/
 	FILE *file = fopen("example.txt", "r");
 	if (file == NULL)
 	{
