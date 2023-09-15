@@ -3,13 +3,13 @@
 #include <fcntl.h>
 
 int main() {
-  int fd = open("myfile.txt", O_WRONLY);
+  int fd = open("output.txt", O_WRONLY);
   if (fd == -1) {
     perror("open");
     return (1);
   }
 
-  dprintf(fd, "Hello, world!\n");
+  dprintf(fd, "Hey, world!\n");
 
   close(fd);
 

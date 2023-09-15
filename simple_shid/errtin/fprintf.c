@@ -2,7 +2,7 @@
 
 int main(void)
 {
-	FILE *file = fopen("output.txt"."w+");
+	FILE *file = fopen("output.txt", "w+");
 	if (file == NULL)
 	{
 		return (1);
@@ -12,7 +12,7 @@ int main(void)
 
 	fclose(file);
 
-	retyurn (0);
+	return (0);
 
 }
 
