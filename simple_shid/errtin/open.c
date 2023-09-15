@@ -1,4 +1,6 @@
+#include <fcntl.h>
 #include <unistd.h>
+#include <stdio.h>
 
 int main(void)
 {
@@ -6,15 +8,12 @@ int main(void)
 	
 	if (fd == -1)
 	{
-		perror("open failed");
+		perror("open");
 		return (1);
 	}
 
-	dprintf(fd, "In this example, the open() function is used to open the file myfile.
-			txt for reading only. The close() function is used to close the file myfile.txt.
-		       	The open() function is a fundamental system call that is used to access
-			files in the operating system. It is a common function that is used in C");
+	dprintf(fd, "In this example, the open() function is used to open the file myfile.\n");
 	close(fd); 
 	
-	return (O);
+	return (0);
 }
