@@ -53,52 +53,70 @@ void remove_newline(char *cmd, ssize_t chars_read)
 		cmd[chars_read - 1] = '\0';
 }
 
+
 /**
- * main - start of simple shell program
- * a UNIX command line interpreter.
+ * handleKid_pid - handles conditional statements
+ * for to fork() kid_child
+ * @cmd: user inputed command
  *
- * Return: always 0 on success.
+ * Return: kid_pid on success.
  */
 
-int main(void)
+void handleKid_pid(const char *cmd)
 {
-	char *cmd;
-	size_t buffsize = 0;
-	ssize_t chars_read;
-	pid_t child_pid;
-
-	cmd = (char *)malloc(buffsize * sizeof(char));
-	if (cmd == NULL)
-	{
-		perror("Unable to allocate command buffer");/* testing for NULL status*/
-		exit(EXIT_FAILURE);
-	}
-
-	while (1)
-	{
-		printf("#cisfun$ ");
-		chars_read = getline(&cmd, &buffsize, stdin);
-		if (chars_read == -1)
-		{
-			handle_error("getline");
-		}
-		remove_newline(cmd, chars_read);
-		child_pid = fork();
-		if (child_pid == -1)	 /* OpenAI's idealogy*/
-		{
-			handle_error("fork failed");
-		}
-		else if (child_pid == 0)	 /* On sucess child process runs */
-		{
-			execve(cmd, (char *const []){cmd, NULL}, NULL);
-			handle_error("execve");
-		}
-		else
-			wait(NULL);	/* Wait() waits till the process finish */
-	}
-
-	//free(cmd);
-	return (0);
+	execve(cmd, (char *const[]){(char *const)cmd, NULL}, NULL);
+	perror("execve");
+	exit(EXIT_FAILURE);
 }
 
 
+/**
+ * get_path - function that handles env variable.
+ * @cmd: CLI iputs or commands
+ *
+ * Return: 0.
+ */
+
+char *get_path(char *cmd)
+{
+	char *path_env = getenv("PATH");
+
+	if (path_env == NULL)
+		return (NULL);
+	char *path = strtok(path_env, ":");
+
+	while (path != NULL)
+	{
+		char *full_path = malloc(strlen(path) + strlen(cmd) + 2);
+
+		if (full_path == NULL)
+		{
+			printf("malloc");
+			exit(EXIT_FAILURE);
+		}
+		sprintf(full_path, "%s/%s", path, cmd);
+
+		if (access(full_path, X_OK) == 0)
+			return (full_path);
+
+		free(full_path);
+		path = strtok(NULL, ":");
+	}
+	return (NULL);
+}
+
+
+/**
+ * hanndle_env_cmd - handle the built-in env command
+ * in file 5.simple....c
+ */
+void hanndle_env_cmd(void)
+{
+	char **env = environ;
+	while (*env != NULL)
+	{
+		printf("%s\n", *env);
+		env++;
+	}
+	continue;
+}
