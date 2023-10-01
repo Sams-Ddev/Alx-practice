@@ -8,7 +8,7 @@ Welcome to the ALx Practice repository! This repository is dedicated to practici
 To get started with the practice sessions, simply clone this repository to your local machine using the following command:
 
 ```shell
-git clone https://github.com/your-username/ALx-practice.git
+git clone https://{your_token}@github.com/your-username/ALx-practice.git
 ```
 
 ## Structure
