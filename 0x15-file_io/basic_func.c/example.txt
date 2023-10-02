@@ -1,0 +1,6 @@
+Certainly! Let's break down the code you provided step by step:
+
+char buffer[6]; // One extra byte for null-terminator
+
+Here, you're declaring an array called buffer of type char with a size of 6 elements. The comment indicates that you're reserving one extra byte in the array for the null-terminator ('\0'), which is used to mark the end of a C-style string. This extra byte is essential when you intend to treat the data read as a string because strings in C are null-terminated.
+size_t bytesRead = fread(buffer, 1, 5, file

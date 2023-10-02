@@ -11,7 +11,7 @@ int main()
 {
 	FILE *filePtr;
 	
-	/* Opening a file for writng*/
+	/*---Opening a file for writng-------*/
 	filePtr = fopen("example.txt", "w");
 	
 	/* Handling error  messages*/
@@ -21,7 +21,7 @@ int main()
 		return (1);
 	}
 
-	/* Closing the file */
+	/*----Closing the file----*/
 	if (fclose(filePtr) != 0)
 	{
 		perror("Error closing file");
@@ -29,6 +29,7 @@ int main()
 	}
 	return (0);
 }
+
 /*--------------summary--------------------------*/
 /**
  * This program opens a file named "example.txt"
