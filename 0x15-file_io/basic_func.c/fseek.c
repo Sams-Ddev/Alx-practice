@@ -1,4 +1,5 @@
-#include <>
+#include <stdio.h>
+#include <stddef.h>
 /**
  * In C, when you open a file using fopen(),
  * a file pointer is associated with that file.
@@ -15,6 +16,8 @@
 int main(void)
 {
 	FILE *filePtr;
+	char buffer[6];
+	size_t byteRead;
 
 	/*---opening and error handling----*/
 	filePtr = fopen("example.txt", "r");
@@ -29,12 +32,12 @@ int main(void)
 	fseek(filePtr, 10, SEEK_SET);
 
 	/*----reading data from new ptr * Loc----*/
-	char buffer[6];
-	size_t byteRead = fread(buffer, 1, 5, filePtr);
 
-	if (bytesRead > 0)
+	byteRead = fread(buffer, 1, 5, filePtr);
+
+	if (byteRead > 0)
 	{
-		buffer[bytesRead] = '\0'; // Null-terminate the string
+		buffer[byteRead] = '\0'; /* Null-terminate the string*/
 		printf("Read data: %s\n", buffer);
 	}
 	else
