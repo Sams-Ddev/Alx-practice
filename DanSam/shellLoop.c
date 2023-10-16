@@ -49,9 +49,9 @@ int h_sh(info_r *info, char **av)
  * @info: the parameter & return info struct
  *
  * Return: -1 if builtin not found,
- *			0 if builtin executed successfully,
- *			1 if builtin found but not successful,
- *			-2 if builtin signals exit()
+ * 0 if builtin executed successfully,
+ * 1 if builtin found but not successful,
+ * -2 if builtin signals exit()
  */
 int builtin_cmd_find(info_r *info)
 {
@@ -95,7 +95,7 @@ void find_cmd_PATH(info_r *info)
 		info->lineCount_inp = 0;
 	}
 	for (i = 0, k = 0; info->arg[i]; i++)
-		if (!check_charDelim(info->arg[i], " \t\n"))
+		if (!chk_Delim(info->arg[i], " \t\n"))
 			k++;
 	if (!k)
 		return;
@@ -127,16 +127,6 @@ void find_cmd_PATH(info_r *info)
  * Return: void
  */
 
-/**
- * The `fork` system call is employed to generate a new process,
- * commonly referred to as the child process. This child process
- * runs concurrently with the process that initiates the `fork()` call,
- * which is known as the parent process.
- * Once a new child process is established, both processes will
- * proceed to exec the subsequent instruct following the `fork()` syscall.
- * The child process shares the same program counter (PC),
- * CPU registers, and open files that are used in the parent process.
- */
 void fork_exec(info_r *info)
 {
 	pid_t child_pid;

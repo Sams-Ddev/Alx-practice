@@ -162,7 +162,7 @@ void *mem_realloc(void *, unsigned int, unsigned int);
 
 /*--------checks and bitwise checks functions()----------*/
 int interative_chk(info_r *);
-int check_charDelim(char, char *);
+int chk_Delim(char, char *);
 int verify_alph(int);
 int strg_to_int(char *);
 int free_ptr(void **);

@@ -3,9 +3,11 @@
 /**
  * copyStrings - Duplicates a string.
  * @dest: The target location or buffer where the string will be copied to.
- * @src: The string that is being copied or the source from which the data is being duplicated.
+ * @src: The string that is being copied or the source from
+ * which the data is being duplicated.
  *
- * Return: A reference or pointer to the destination where the string is being copied.
+ * Return: A reference or pointer to the destination
+ * where the string is being copied.
  */
 char *copyStrings(char *dest, char *src)
 {
@@ -65,11 +67,12 @@ void printsInp_Strg(char *strg)
 }
 
 /**
- * _putchar - Outputs the character 'c' to the standard output (stdout).
+ * _putchar - Outputs the character 'c' to the stdout.
  * @c: The character that you want to be printed.
  *
  * Return: On success 1.
- * In case of an error, a return value of -1 is provided, and the error status (errno) is adjusted accordingly.
+ * In case of an error, a return value of -1 is provided, and
+ * the error status (errno) is adjusted accordingly.
  */
 int _putchar(char c)
 {

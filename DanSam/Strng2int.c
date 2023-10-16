@@ -12,12 +12,12 @@ int interative_chk(info_r *info)
 }
 
 /**
- * check_charDelim - checks if the character is a delimeter
+ * chk_Delim - checks if the character is a delimeter
  * @c: the char to check
  * @delim: The delimeter string
  * Return: 1 if true, 0 if false
  */
-int check_charDelim(char c, char *delim)
+int chk_Delim(char c, char *delim)
 {
 	while (*delim)
 		if (*delim++ == c)

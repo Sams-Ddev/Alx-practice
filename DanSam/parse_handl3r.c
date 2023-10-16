@@ -1,16 +1,13 @@
 #include "main.h"
 
 /**
- * Parsing, also known as syntax analysis or syntactic analysis, involves the examination of a sequence of symbols. This sequence can be found in various contexts, such as natural language, computer programming languages, or data structures.
- */
-
-/**
  * is_exec_cmd - Checks if a file serves as an executable command.
  * @info: the info struct data type
  * @path_cmd: path to the command file
  *
  * Return: 1 if true, 0 otherwise
  */
+
 int is_exec_cmd(info_r *info, char *path_cmd)
 {
 	struct stat st;
