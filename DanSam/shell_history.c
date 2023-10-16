@@ -14,7 +14,7 @@ char *getHistoryFile(info_r *info)
 	dir = env_getValue(info, "HOME=");
 	if (!dir)
 		return (NULL);
-	buf = malloc(sizeof(char) * (strg_length(dir) + strg_length(HISTORY_FILE) + 2));
+	buf = malloc(sizeof(char) * (strLen(dir) + strLen(HISTORY_FILE) + 2));
 	if (!buf)
 		return (NULL);
 	buf[0] = 0;

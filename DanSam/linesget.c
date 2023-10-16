@@ -82,7 +82,7 @@ ssize_t getLine_nonLine(info_r *info)
 		}
 
 		*buf_p = p;	/* Returns a pointer to the current command position. */
-		return (strg_length(p)); /* return length of current command */
+		return (strLen(p)); /* return length of current command */
 	}
 
 	*buf_p = buf; /* else not a chain, pass back buffer from getNxtline_stdin() */

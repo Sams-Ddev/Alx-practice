@@ -58,7 +58,7 @@ char *cmd_findIn_PATH(info_r *info, char *pathstrg, char *cmd)
 
 	if (!pathstrg)
 		return (NULL);
-	if ((strg_length(cmd) > 2) && ChkStart_haystk(cmd, "./"))
+	if ((strLen(cmd) > 2) && ChkStart_haystk(cmd, "./"))
 	{
 		if (is_exec_cmd(info, cmd))
 			return (cmd);

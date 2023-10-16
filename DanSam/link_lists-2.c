@@ -38,7 +38,7 @@ char **strg_listSTRUCT(list_t *head)
 		return (NULL);
 	for (i = 0; node; node = node->nXtNode, i++)
 	{
-		strg = malloc(strg_length(node->strg) + 1);
+		strg = malloc(strLen(node->strg) + 1);
 		if (!strg)
 		{
 			for (j = 0; j < i; j++)

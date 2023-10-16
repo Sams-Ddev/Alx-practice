@@ -69,7 +69,7 @@ int init_setenv(info_r *info, char *var, char *value)
 	if (!var || !value)
 		return (0);
 
-	buf = malloc(strg_length(var) + strg_length(value) + 2);
+	buf = malloc(strLen(var) + strLen(value) + 2);
 	if (!buf)
 		return (1);
 	copyStrings(buf, var);

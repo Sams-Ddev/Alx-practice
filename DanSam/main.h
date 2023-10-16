@@ -129,7 +129,7 @@ void fork_exec(info_r *);
 int loophsh(char **);
 
 /*--------------- string.c —-----------------------*/
-int strg_length(char *);
+int strLen(char *);
 int lex_StrgCmp(char *, char *);
 char *ChkStart_haystk(const char *, const char *);
 char *Cat_2Strgs(char *, char *);
