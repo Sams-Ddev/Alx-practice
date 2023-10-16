@@ -42,7 +42,8 @@ int printChar_stderr(char c)
 }
 
 /**
- * printChar_fd - Writes the character 'c' to the specified file descriptor (fd).
+ * printChar_fd - Writes the character 'c' to the
+ * specified file descriptor (fd).
  * @c: The character to be printed.
  * @fd: The filedescriptor to be written to
  *

@@ -1,10 +1,13 @@
 #include "main.h"
 
 /**
- * **SplitStrg_in2 - Divides a string into individual words, while repeated delimiters are disregarded.
+ * **SplitStrg_in2 - Divides a string into individual words,
+ * while repeated delimiters are disregarded.
  * @strg: The string that you want to split into words.
- * @d: The delimiter string that is used to separate or split the input string into words.
- * Return: A reference to an array of strings is returned if successful, and in case of failure, a NULL pointer is provided.
+ * @d: The delimiter string that is used to separate or
+ * split the input string into words.
+ * Return: A reference to an array of strings is returned
+ * if successful, and in case of failure, a NULL pointer is provided.
  */
 
 char **SplitStrg_in2(char *strg, char *d)
@@ -17,7 +20,7 @@ char **SplitStrg_in2(char *strg, char *d)
 	if (!d)
 		d = " ";
 	for (i = 0; strg[i] != '\0'; i++)
-		if (!checks_charDelim(strg[i], d) && (checks_charDelim(strg[i + 1], d) || !strg[i + 1]))
+		if (!check_charDelim(strg[i], d) && (check_charDelim(strg[i + 1], d) || !strg[i + 1]))
 			numwords++;
 
 	if (numwords == 0)
@@ -27,10 +30,10 @@ char **SplitStrg_in2(char *strg, char *d)
 		return (NULL);
 	for (i = 0, j = 0; j < numwords; j++)
 	{
-		while (checks_charDelim(strg[i], d))
+		while (check_charDelim(strg[i], d))
 			i++;
 		k = 0;
-		while (!checks_charDelim(strg[i + k], d) && strg[i + k])
+		while (!check_charDelim(strg[i + k], d) && strg[i + k])
 			k++;
 		s[j] = malloc((k + 1) * sizeof(char));
 		if (!s[j])

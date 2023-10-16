@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * chk_chainDelim - Checks whether the current character in the buffer is a delimiter for a chain.
+ * chk_chainDelim - Checks whether current char in the buff is a chain delim.
  * @info: the parameter struct
  * @buf: the char buffer
  * @p: address of current position in buf
  *
- * Return: returns 1 if the current character is a chain delimiter, and 0 if it's not.
+ * Return: 1 if the current char is a chain delimiter, and 0 if it's not.
  */
 int chk_chainDelim(info_r *info, char *buf, size_t *p)
 {
@@ -100,7 +100,7 @@ int aliasReplace(info_r *info)
 
 /**
  * varReplace - Substitutes variables within the tokenized string.
- * @info: The structure containing the parameters used for variable replacement.
+ * @info: The struct containing the parameters used for vars replacement.
  *
  * Return: 1 if replaced, 0 otherwise
  */

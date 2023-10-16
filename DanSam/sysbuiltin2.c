@@ -1,9 +1,12 @@
 #include "main.h"
 
 /**
- * _history_list - Displays the history list, presenting each command on a new line with respective line numbers starting from 0.
- * @info: Structure designed to hold potential arguments, enabling the maintenance of a consistent function prototype.
- *  Return: Always 0
+ * _history_list - Displays the history list, presenting each
+ * command on a new line with respective line numbers starting from 0.
+ * @info: Structure designed to hold potential arguments,
+ * enabling the maintenance of a consistent function prototype.
+ *
+ * Return: Always 0
  */
 int _history_list(info_r *info)
 {
@@ -80,8 +83,10 @@ int print_alias(list_t *node)
 
 /**
  * sim_alias - Simulates the behavior of the alias builtin (see 'man alias').)
- * @info: A structure containing potential arguments, intended for maintaining a consistent function prototype.
- *  Return: Always 0
+ * @info: A structure containing potential arguments,
+ * intended for maintaining a consistent function prototype.
+ *
+ * Return: Always 0
  */
 int sim_alias(info_r *info)
 {

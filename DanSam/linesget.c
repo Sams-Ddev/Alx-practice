@@ -18,7 +18,7 @@ ssize_t input_buf(info_r *info, char **buf, size_t *len)
 		/*free_ptr((void **)info->cmd_buffer);*/
 		free(*buf);
 		*buf = NULL;
-		signal(SIGINT, block_Ctrl+c);
+		signal(SIGINT, block_Ctrl_c);
 #if CALL_GETLINE
 		r = getline(buf, &len_p, stdin);
 #else
@@ -45,7 +45,7 @@ ssize_t input_buf(info_r *info, char **buf, size_t *len)
 }
 
 /**
- * getLine_nonLine - Obtains a line of text without including the newline character.
+ * getLine_nonLine - Obtains a line of text without including the n/.
  * @info: A structure containing parameters.
  *
  * Return: The number of bytes that were read.
@@ -81,7 +81,7 @@ ssize_t getLine_nonLine(info_r *info)
 			info->cmd_type_buffer = CMD_NORM;
 		}
 
-		*buf_p = p;			 /* Returns a pointer to the current command position. */
+		*buf_p = p;	/* Returns a pointer to the current command position. */
 		return (strg_length(p)); /* return length of current command */
 	}
 
@@ -110,10 +110,10 @@ ssize_t read_buf(info_r *info, char *buf, size_t *i)
 }
 
 /**
- * getNxtline_stdin - Obtains the next line of input from the standard input (STDIN).
+ * getNxtline_stdin - Obtains the next line of input from the STDIN.
  * @info: A structure containing parameters.
- * @ptr: The address of a pointer to a buffer, which may be preallocated or NULL.
- * @length: The size of the preallocated pointer buffer if it is not NULL.
+ * @ptr: The * of a ptr to a buf, which may be preallocated or NULL.
+ * @length: The size of the preallocated ptr buffer if it is not NULL.
  *
  * Return: s
  */
@@ -138,7 +138,7 @@ int getNxtline_stdin(info_r *info, char **ptr, size_t *length)
 	c = findChar_inStrg(buf + i, '\n');
 	k = c ? 1 + (unsigned int)(c - buf) : len;
 	new_p = mem_realloc(p, s, s ? s + k : k + 1);
-	if (!new_p) /* MALLOC FAILURE! */
+	if (!new_p) /* WHEN MALLOC FAILURE! */
 		return (p ? free(p), -1 : -1);
 
 	if (s)
@@ -157,12 +157,12 @@ int getNxtline_stdin(info_r *info, char **ptr, size_t *length)
 }
 
 /**
- * block_Ctrl+c - Blocks the Ctrl-C signal.
+ * block_Ctrl_c - Blocks the Ctrl-C signal.
  * @sig_value: The numerical value representing the signal.
  *
  * Return: void
  */
-void block_Ctrl+c(__attribute__((unused)) int sig_value)
+void block_Ctrl_c(__attribute__((unused)) int sig_value)
 {
 	printsInp_Strg("\n");
 	printsInp_Strg("$ ");

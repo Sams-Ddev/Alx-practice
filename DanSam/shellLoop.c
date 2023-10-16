@@ -2,10 +2,11 @@
 
 /**
  * h_sh -The primary loop of the shell program.
- * @info:The structure containing information regarding parameters and return values.
+ * @info:The structure containing information regarding parameters.
  * @av: The array of arguments passed to the `main()` function.
  *
- * Return: A return value of 0 typically indicates success, while 1 typically signifies an error, or an error code may be returned to provide further details about the specific error encountered.
+ * Return: A return value of 0 typically indicates success,
+ * while 1 typically signifies an error.
  */
 int h_sh(info_r *info, char **av)
 {
@@ -94,7 +95,7 @@ void find_cmd_PATH(info_r *info)
 		info->lineCount_inp = 0;
 	}
 	for (i = 0, k = 0; info->arg[i]; i++)
-		if (!checks_charDelim(info->arg[i], " \t\n"))
+		if (!check_charDelim(info->arg[i], " \t\n"))
 			k++;
 	if (!k)
 		return;
@@ -118,16 +119,23 @@ void find_cmd_PATH(info_r *info)
 }
 
 /**
- * fork_exec - Creates a new process using `fork()` and then executes a command (`cmd`) in a separate thread using `exec()`.
- * @info: The structure containing information about function parameters and return values.
+ * fork_exec - Creates a new process using `fork()` and then
+ * executes a (`cmd`) in a separate thread using `exec()`.
+ * @info: The structure containing info about funct parameters
+ * and return values.
  *
  * Return: void
  */
 
 /**
- *The `fork` system call is employed to generate a new process, commonly referred to as the child process. This child process runs concurrently with the process that initiates the `fork()` call, which is known as the parent process.
- *  Once a new child process is established, both processes will proceed to execute the subsequent instruction following the `fork()` system call.
- *  The child process shares the same program counter (PC), CPU registers, and open files that are used in the parent process.
+ * The `fork` system call is employed to generate a new process,
+ * commonly referred to as the child process. This child process
+ * runs concurrently with the process that initiates the `fork()` call,
+ * which is known as the parent process.
+ * Once a new child process is established, both processes will
+ * proceed to exec the subsequent instruct following the `fork()` syscall.
+ * The child process shares the same program counter (PC),
+ * CPU registers, and open files that are used in the parent process.
  */
 void fork_exec(info_r *info)
 {

@@ -30,7 +30,7 @@ int convStrg_to_int(char *s)
 
 /**
  * printError_stdout - Prints an error message to the standard output.
- * @info: The structure containing information about parameters and return values.
+ * @info: The struct containing info about parameters & return values.
  * @estr:A string indicating the specified error type.
  * Return: 0 if no numbers in string, converted number otherwise
  *        -1 on error
@@ -47,7 +47,7 @@ void printError_stdout(info_r *info, char *estr)
 }
 
 /**
- * prints_decimal - function prints a decimal (integer) number (base 10)
+ * prints_decimal - function prints a decimal (int) number (base 10)
  * @input: the input
  * @fd: the filedescriptor to write to
  *

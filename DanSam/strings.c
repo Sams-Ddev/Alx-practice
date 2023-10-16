@@ -43,9 +43,11 @@ int lex_StrgCmp(char *s1, char *s2)
 /**
  * ChkStart_haystk - Verifies whether the "needle" starts with the "haystack."
  * @haystack: The string you want to search, often referred to as the "needle."
- * @needle: The substring you are looking to locate or find, typically referred to as the "needle."
+ * @needle: The substring you are looking to locate or find,
+ * typically referred to as the "needle."
  *
- * Return: The address of the next character in the "haystack," or it returns NULL if there are no more characters left to search for in the "needle."
+ * Return: The address of the next character in the "haystack," or
+ * NULL if there are no more chars left to search for in the "needle."
  */
 char *ChkStart_haystk(const char *haystack, const char *needle)
 {
@@ -57,10 +59,12 @@ char *ChkStart_haystk(const char *haystack, const char *needle)
 
 /**
  * Cat_2Strgs - Combines or joins two strings together.
- * @dest: The buffer or location where the combined strings will be stored.
- * @src:The buffer or string that is being appended or concatenated to the destination buffer.
+ * @dest: The buffer where the combined strgs will be stored.
+ * @src:The buffer or string that is being appended or
+ * concatenated to the destination buffer.
  *
- * Return:A reference or pointer to the destination buffer where the strings are being concatenated.
+ * Return:A reference or pointer to the destination buffer
+ * where the strings are being concatenated.
  */
 char *Cat_2Strgs(char *dest, char *src)
 {

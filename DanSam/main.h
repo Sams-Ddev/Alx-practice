@@ -50,8 +50,9 @@ typedef struct strgList
 } list_t;
 
 /**
- *struct pseudo_pass - Incorporates placeholder arguments for passing into a function, enabling a consistent prototype for function pointer structures.
- *@arg: A string literal erived from the getline() function calls,with arguments.
+ *struct pseudo_pass - Incorporates placeholder arguments for passing into a
+ *function,enabling a consistent prototype for function pointer structures.
+ *@arg: A string literal erived from the getline() function calls,with arg.
  *@argv: An array of strings created from arguments.
  *@path_cmd:A string representing the path for the current command.
  *@arg_count: The count of arguments
@@ -60,16 +61,18 @@ typedef struct strgList
  *@alias_node:the node corresponding to alias
  *@modified_env: In the event that 'environ' has been modified.
  *@status: The return status of the most recently executed command.
- *@cmd_buffer: The address of a pointer pointing to 'cmd_buffer,' in the context of command chaining.
+ *@cmd_buffer: The address of a ptr pointing to 'cmd_buffer,'
+ *in the context of command chaining.
  *@cmd_type_buffer: variable handler for command buffer type;
  *@readInput_fd:The file descriptor used to read line input.
  *@count_historyLine:Count of history line (or counter)
- *@exit_error: The error code that is associated with calling the exit() function calls.
+ *@exit_error: The error code with calling the exit() function calls.
  *@lineCount_inp: The counting event of the various line of input.
  *@prog_fileName: The program filel’s name.
  *@env:A local copy of the environment variables stored as a linked list.
- *@environ: A customized and modified version of the environment variables derived from a      linked list of environment variables.
-  */
+ *@environ: A customized and modified version of the environment variables
+ *derived from a linked list of environment variables.
+ */
 typedef struct pseudo_pass
 {
 	char *arg;
@@ -93,14 +96,15 @@ typedef struct pseudo_pass
 	int count_historyLine;
 } info_r;
 
-#define INFO_INITIATE                                                               \
+#define INFO_INITIATE                                                \
 	{                                                                           \
 		NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
 			0, 0, 0                                                             \
 	}
 
 /**
- *struct built_int_strg - Involves an internally implemented string and its associated function.
+ *struct built_int_strg - Involves an internally implemented
+ *string and its associated function.
  *@flag_type: The flag indicating a built-in command.
  *@func: the function
  */
@@ -158,7 +162,7 @@ void *mem_realloc(void *, unsigned int, unsigned int);
 
 /*--------checks and bitwise checks functions()----------*/
 int interative_chk(info_r *);
-int checks_charDelim(char, char *);
+int check_charDelim(char, char *);
 int verify_alph(int);
 int strg_to_int(char *);
 int free_ptr(void **);
@@ -178,7 +182,7 @@ int sim_alias(info_r *);
 /*----------getline() simulations functions calls()------- */
 ssize_t getLine_nonLine(info_r *);
 int getNxtline_stdin(info_r *, char **, size_t *);
-void block_Ctrl+c(int);
+void block_Ctrl_c(int);
 void clear_info_r(info_r *);
 void set_info_r(info_r *, char **);
 void free_info_r(info_r *, int);
@@ -204,7 +208,8 @@ size_t List_length(const list_t *);
 char **strg_listSTRUCT(list_t *);
 size_t printList_t(const list_t *);
 list_t *nodeWith_pfix(list_t *, char *, char);
-ssize_t getNodeIndex(list_t *, list_t *);list_t *addStartNode(list_t **, const char *, int);
+ssize_t getNodeIndex(list_t *, list_t *);
+list_t *addStartNode(list_t **, const char *, int);
 list_t *addStartNode_end(list_t **, const char *, int);
 size_t putsStrg_List(const list_t *);
 int del_IndexNode(list_t **, unsigned int);

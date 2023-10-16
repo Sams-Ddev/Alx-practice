@@ -5,7 +5,7 @@
  *@dest: The string to which the contents will be copied.
  *@src:The original string from which the contents will be copied.
  *@n: The number of characters to be copied.
- *Return: The string obtained by combining or concatenating two or more strings.
+ *Return: The string obtained by combining or concat two or more strings.
  */
 char *copyG_strg(char *dest, char *src, int n)
 {

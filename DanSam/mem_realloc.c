@@ -37,7 +37,8 @@ void ss_free(char **pp)
  * @old_size: The size of the previous block in bytes.
  * @new_size:The size of the new block in bytes.
  *
- * Return:A reference to the old block, colloquially referred to as "da ol' block.".
+ * Return:A reference to the old block, colloquially referred to as
+ * "da ol' block.".
  */
 void *mem_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {

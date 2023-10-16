@@ -1,10 +1,13 @@
 #include "main.h"
 
 /**
- * env_strgArray - Returns a copy of the string array representing our environment (environ).
- * @info: A structure that holds potential arguments, used to maintain a consistent function prototype.
+ * env_strgArray - Returns copy of string-array of our environ.
+ * @info: A structure that holds potential arguments,
+ * used to maintain a consistent function prototype.
+ *
  * Return: Always 0
  */
+
 char **env_strgArray(info_r *info)
 {
 	if (!info->environ || info->modified_env)
@@ -49,12 +52,13 @@ int del_setenv(info_r *info, char *var)
 }
 
 /**
- * init_setenv -Initializes a new environment variable or modifies an existing one.
+ * init_setenv -Initializes new environment var or modifies an existing one.
  * @info: Structure containing potential arguments. Used to maintain
- *        constant function prototype.
+ * constant function prototype.
  * @var: the string env var property
  * @value: the string env var value
- *  Return: Always 0
+ *
+ * Return: Always 0
  */
 int init_setenv(info_r *info, char *var, char *value)
 {

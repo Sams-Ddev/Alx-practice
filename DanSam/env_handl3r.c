@@ -2,7 +2,8 @@
 
 /**
  * puts_currentenv -Prints the current environment.
- * @info: A structure that holds possible arguments, aiming to maintain a consistent function prototype.
+ * @info: A structure that holds possible arguments,
+ * aiming to maintain a consistent function prototype.
  * Return: Always 0
  */
 int puts_currentenv(info_r *info)
@@ -13,7 +14,8 @@ int puts_currentenv(info_r *info)
 
 /**
  * env_getValue - Retrieves the value of an environment variable.
- * @info: A structure holding potential arguments, used for maintaining consistent functionality and structure.
+ * @info: A structure holding potential arguments,
+ * used for maintaining consistent functionality and structure.
  * @name: Environment variable name.
  *
  * Return: the value
@@ -35,9 +37,10 @@ char *env_getValue(info_r *info, const char *name)
 
 /**
  * int_envVar - Initialize a  verynew working environment variable,
- *             or modify an existing one
- * @info:A structure designed to contain possible arguments, with the purpose of maintaining a consistent function prototype.
- *  Return: Always 0
+ * or modify an existing one
+ * @info:A structure designed to contain possible arguments,
+ * with the purpose of maintaining a consistent function prototype.
+ * Return: Always 0
  */
 int int_envVar(info_r *info)
 {
@@ -53,8 +56,9 @@ int int_envVar(info_r *info)
 
 /**
  * del_envVar - Delete an environment variable.
- * @info: A data structure designed to hold potential arguments, ensuring a consistent function prototype.
- *  Return: Always 0
+ * @info: A data structure designed to hold potential arguments,
+ * ensuring a consistent function prototype.
+ * Return: Always 0
  */
 int del_envVar(info_r *info)
 {
@@ -73,7 +77,8 @@ int del_envVar(info_r *info)
 
 /**
  * populate_envList - populates env linked list
- * @info: A data structure designed to hold potential arguments, ensuring a consistent function prototype.
+ * @info: A data structure designed to hold potential
+ * arguments, ensuring a consistent function prototype.
  * Return: Always 0
  */
 int populate_envList(info_r *info)

@@ -2,10 +2,11 @@
 
 /**
  * exit_shell - exits the shell
- * @info:A structure that holds possible arguments and is utilized for maintenance purposes.
- *          constant function prototype.
- *  Return: exits with a given exit status
- *         (0) if info.argv[0] != "exit"
+ * @info:A structure that holds possible arguments and is utilized for
+ * maintenance purposes. constant function prototype.
+ *
+ * Return: exits with a given exit status
+ * (0) if info.argv[0] != "exit"
  */
 int exit_shell(info_r *info)
 {
@@ -31,9 +32,10 @@ int exit_shell(info_r *info)
 
 /**
  * _cd - Alters the current directory of the process.
- * @info: A structure holding potential arguments, used for maintenance purpose of
- *          constant function prototype.
- *  Return: Always 0
+ * @info: A structure holding potential arguments, used for
+ * maintenance purpose of constant function prototype.
+ *
+ * Return: Always 0
  */
 int _cd(info_r *info)
 {
