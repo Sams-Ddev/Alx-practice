@@ -1,127 +1,82 @@
 # 0x14. C - Bit Manipulation
 
-## Project Overview
-This project is part of the ALX School curriculum and covers various concepts related to bit manipulation in the C programming language.
+## Introduction
 
-Project Start Date: August 31, 2023, 6:00 AM
-Project End Date: September 1, 2023, 6:00 AM
-Checker Release Date: August 31, 2023, 12:00 PM
-Auto Review: Will be launched at the deadline
+Welcome to the 0x14. C - Bit Manipulation project! In this project, you will learn and practice the fundamentals of bit manipulation and bitwise operators in the C programming language. By the end of this project, you will be able to manipulate bits and use bitwise operators without relying on external resources.
 
-## Learning Objectives
-By the end of this project, you are expected to be able to:
-- Look for the right sources of information without excessive assistance.
-- Understand and manipulate bits using bitwise operators.
+**Project Information**
 
-## Copyright and Plagiarism
-- Solutions for the tasks in this project should be developed independently to meet the learning objectives.
-- Plagiarism is strictly prohibited, and copying or publishing project content is not allowed.
-
-## Requirements
-- Allowed Editors: vi, vim, emacs
-- Compilation: Ubuntu 20.04 LTS using gcc with options -Wall -Werror -Wextra -pedantic -std=gnu89
-- All files should end with a new line.
-- A README.md file at the root of the project folder is mandatory.
-- Code should adhere to the Betty style, and it will be checked using betty-style.pl and betty-doc.pl.
-- Global variables are not allowed.
-- Maximum of 5 functions per file.
-- Only the standard C library functions malloc, free, and exit are allowed.
-- You are allowed to use the _putchar function.
-- Do not push _putchar.c, as it will not be considered. The checker uses its own file.
-- The prototypes of all functions and the _putchar function should be included in the header file called main.h.
-- Remember to push your header file.
-- All header files should be include guarded.
-
-## Tasks
-### 0. Binary to Unsigned Int
-Write a function that converts a binary number to an unsigned int.
-
-```c
-unsigned int binary_to_uint(const char *b);
-
-
-Certainly! Here's a README.md file for your repo project based on the provided guidelines:
-
-markdown
-Copy code
-# 0x14. C - Bit Manipulation
-
-## Project Overview
-This project is part of the ALX School curriculum and covers various concepts related to bit manipulation in the C programming language.
-
-Project Start Date: August 31, 2023, 6:00 AM
-Project End Date: September 1, 2023, 6:00 AM
-Checker Release Date: August 31, 2023, 12:00 PM
-Auto Review: Will be launched at the deadline
+- **Author**: Julien Barbier
+- **Weight**: 1
+- **Project Start Date**: September 28, 2023, 6:00 AM
+- **Project End Date**: September 29, 2023, 6:00 AM
+- **Checker Release Date**: September 28, 2023, 12:00 PM
+- **Auto Review at Deadline**
 
 ## Learning Objectives
-By the end of this project, you are expected to be able to:
-- Look for the right sources of information without excessive assistance.
-- Understand and manipulate bits using bitwise operators.
+
+By completing this project, you are expected to achieve the following learning objectives:
+
+1. **General**
+   - Develop the ability to find the right sources of information independently.
+   - Gain proficiency in manipulating bits and using bitwise operators.
 
 ## Copyright and Plagiarism
-- Solutions for the tasks in this project should be developed independently to meet the learning objectives.
-- Plagiarism is strictly prohibited, and copying or publishing project content is not allowed.
+
+Please note the following important guidelines regarding copyright and plagiarism:
+
+- You must come up with solutions for the project tasks on your own to meet the learning objectives.
+- Publishing any content from this project is strictly prohibited.
+- Plagiarism in any form is not allowed and will result in removal from the program.
 
 ## Requirements
-- Allowed Editors: vi, vim, emacs
-- Compilation: Ubuntu 20.04 LTS using gcc with options -Wall -Werror -Wextra -pedantic -std=gnu89
-- All files should end with a new line.
-- A README.md file at the root of the project folder is mandatory.
-- Code should adhere to the Betty style, and it will be checked using betty-style.pl and betty-doc.pl.
-- Global variables are not allowed.
-- Maximum of 5 functions per file.
-- Only the standard C library functions malloc, free, and exit are allowed.
-- You are allowed to use the _putchar function.
-- Do not push _putchar.c, as it will not be considered. The checker uses its own file.
-- The prototypes of all functions and the _putchar function should be included in the header file called main.h.
-- Remember to push your header file.
-- All header files should be include guarded.
 
-## Tasks
-### 0. Binary to Unsigned Int
-Write a function that converts a binary number to an unsigned int.
+### General
 
-```c
-unsigned int binary_to_uint(const char *b);
+- **Allowed Editors**: vi, vim, emacs
+- All your C files will be compiled on Ubuntu 20.04 LTS using gcc, with the following options: `-Wall -Werror -Wextra -pedantic -std=gnu89`.
+- Ensure that all your C files end with a newline character.
+- A `README.md` file at the root of the project folder is mandatory.
+- Your code should follow the Betty style, which will be checked using `betty-style.pl` and `betty-doc.pl`.
+- Avoid using global variables.
+- Each C file should contain no more than 5 functions.
+- You are only allowed to use the following C standard library functions: `malloc`, `free`, and `exit`. The use of functions like `printf`, `puts`, `calloc`, `realloc`, etc., is forbidden.
+- You are allowed to use `_putchar`. There is no need to push `_putchar.c`; it will be provided.
+- The prototypes of all your functions, including `_putchar`, should be included in your header file called `main.h`. Don't forget to push your header file.
+- Ensure that all your header files are include guarded.
 
-###1. Print Binary
-Write a function that prints the binary representation of a number.
+### Quiz Questions
 
-c
-Copy code
-void print_binary(unsigned long int n);
-###2. Get Bit
-Write a function that returns the value of a bit at a given index.
+Before moving on to the project tasks, validate your understanding by answering these quiz questions:
 
-c
-Copy code
-int get_bit(unsigned long int n, unsigned int index);
-###3. Set Bit
-Write a function that sets the value of a bit to 1 at a given index.
+1. **Question #0**: `0x89 & 0x01 = ?`
+   - [ ] 0x89
+   - [ ] 0x01
+   - [x] 0x88
+   - [ ] 0x00
 
-c
-Copy code
-int set_bit(unsigned long int *n, unsigned int index);
-###4. Clear Bit
-Write a function that sets the value of a bit to 0 at a given index.
+2. **Question #1**: What is 98 in base16?
+   - [ ] 0x98
+   - [x] 0x96
+   - [ ] 0x62
 
-c
-Copy code
-int clear_bit(unsigned long int *n, unsigned int index);
-###5. Flip Bits
-Write a function that returns the number of bits you would need to flip to get from one number to another.
+3. **Question #2**: `0x01 << 1 = ?`
+   - [ ] 0x03
+   - [ ] 0x10
+   - [ ] 0x01
+   - [x] 0x02
 
-c
-Copy code
-unsigned int flip_bits(unsigned long int n, unsigned long int m);
-###6. Endianness
-Write a function that checks the endianness of the machine.
+(Continue to answer the remaining quiz questions...)
 
-c
-Copy code
-int get_endianness(void);
-###7. Crackme3 (Advanced)
-Find the password for a given program. Save the password in the file 101-password.
+## Getting Started
 
-Copyright © 2023 Ashignui Samuel (Software Engineer), All rights reserved.
+To get started with this project, follow these steps:
+
+1. Clone this repository to your local machine.
+2. Review the project requirements and quiz questions to ensure you are prepared.
+3. Work on the project tasks to demonstrate your understanding of bit manipulation in C.
+
+Good luck with your project! If you have any questions or need assistance, feel free to reach out.
+
+**Copyright © 2023 ALX, All rights reserved.**
+

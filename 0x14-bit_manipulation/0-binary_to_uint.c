@@ -1,49 +1,44 @@
 #include "main.h"
 
 /**
- * binary_to_uint - a function that converts a binary number to
+ * binary_to_uint - a function that converts a bits to
  * an unsigned int.
  * @b:is pointing to a string of 0 and 1 chars
  *
- * Return: the conv_num.
+ * Return:(conv_numb).
  */
 
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int conv_num = 0;
-	int strg_len;
+	unsigned int conv_numb = 0;
+	int strg_length;
 	int i;
 	char c;
 	unsigned int bit_value;
 
 	if (!b)
-		return (0);/* returns 0 if b is NULL*/
+		return (0);/* returns 0 if bi is NULL*/
 
 
-	/* Lets calculate string_lenght(strg_len) in b*/
-	strg_len = 0;
-	while (b[strg_len] != '\0')
-	{
-		strg_len++;
-	}
+	/* calculating the string_lenght(strg_length) in bi*/
+	strg_length = 0;
+	while (b[strg_length] != '\0')
+		strg_length++;
 
-	/* Lets check for '0' and '1' in the string b */
-	for (i = 0; i < strg_len; i++)
+	/* Checking for '0' and '1' in the string b */
+	for (i = 0; i < strg_length; i++)
 	{
 		c = b[i];
 		if (c == '0' || c == '1')
 		{
-			/* Calculate the decimal value of currunt binary */
+			/* Calculating the decimal value of currunt bit */
 			bit_value = c - '0';
 
-			conv_num = (conv_num << 1) + bit_value;
+			conv_numb = (conv_numb << 1) + bit_value;
 		}
 		else
-		{
 			return (0);
-		}
 	}
 
-	return (conv_num);
+	return (conv_numb);
 }
-
