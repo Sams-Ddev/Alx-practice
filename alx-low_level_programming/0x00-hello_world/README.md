@@ -20,7 +20,7 @@ To run the Betty linter, use the following command: `betty <filename>`
 
 Follow the steps below to set up the Betty linter:
 
-1. Go to the Betty repository
+1. Go to the Betty coding style repository
 2. Clone the repo to your local machine
 3. Change directory to the Betty directory
 4. Install the linter with `sudo ./install.sh`
